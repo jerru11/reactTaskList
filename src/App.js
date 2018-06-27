@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import TaskAddForm from './modules/TaskAddForm';
+import TaskList from './modules/TaskList';
 
 class App extends Component {
-    state = { loading: false };
+    state = {
+        loading: true,
+        taskList: {},
+    };
 
     componentDidMount() {
         // 测试 devServer 的代理功能
@@ -17,13 +22,14 @@ class App extends Component {
             <div className="App">
                 <div className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
-                    <h2>Welcome to React</h2>
+                    <h2>Welcomesa to React123</h2>
                 </div>
                 <p>{ this.state.loading.toString() }</p>
-                <p className="App-intro">
-          To get startedEE, edit <code>src/App.js</code> and save to reload.
-                </p>
+                <TaskAddForm />
+                <TaskList taskList={this.state.taskList} />
+
             </div>
+
         );
     }
 }
